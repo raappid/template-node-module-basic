@@ -19,7 +19,6 @@
     "mocha": "2.4.5",
     "mock-stdin": "0.3.0",
     "sinon": "1.17.3",
-    "sinon-as-promised": "4.0.0",
     "sinon-chai": "2.8.0",
     "typescript": "1.8.0",
     "typings": "0.6.6"
