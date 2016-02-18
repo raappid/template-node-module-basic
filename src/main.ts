@@ -1,22 +1,22 @@
 
 
-import {actionControl,Action,Event} from "./systems/index"
+import {sayHello} from "./lib/hello-hi";
+import {sayHi} from "./lib/hello-hi";
 
+export function sayHelloAndHi():Promise<string>
+{
+    return new Promise((resolve,reject)=>{
 
-//subscribing to an event
+        sayHello().then((result)=>{
 
-actionControl.subscribe(Event.HI_HELLO,(result:string)=>{
+            resolve(result + " and " + sayHi() );
 
-   console.log("Event Received:\n"+result);
-});
+        },(error)=>{
 
-//performing an action
-actionControl.perform(Action.SAY_HI_AND_HELLO).then((result:string)=>{
-    console.log("Action Performed:\n"+result);
-    console.log(result);
-
-    process.exit(0);
-});
+            reject(error);
+        })
+    });
+}
 
 
 

@@ -23,9 +23,10 @@ function build(isRelease){
 
     var cmd = "tsc";
 
-    if(!isRelease)
-        cmd= cmd + " --sourceMap";
-
+    if(isRelease)
+        cmd = cmd + " --declaration";
+    else
+        cmd = cmd + " --sourceMap";
 
     util.series(["npm run clean",cmd], function (err) {
 
@@ -36,10 +37,9 @@ function build(isRelease){
         }
         else
         {
-
             if(isRelease)
             {
-                cpy(["**/*.js"],"../dist",{cwd:process.cwd()+"/src",parents: true, nodir: true}).then(function(){
+                cpy(["**/*.js","**/*.d.ts"],"../dist",{cwd:process.cwd()+"/src",parents: true, nodir: true}).then(function(){
 
                     process.exit(0);
 
