@@ -1,8 +1,7 @@
 
 var util = require('./util');
 
-
-util.series(["npm run build","istanbul cover node_modules/mocha/bin/_mocha test/**/*.js --recursive"], function(err){
+util.series(["ts-node node_modules/.bin/istanbul cover -e .ts  -x \"*.d.ts\" -x \"*.spec.ts\" -x \"*.test.ts\" node_modules/mocha/bin/_mocha --require tests/helpers/chai-sinon.ts tests/**/*.test.ts tests/**/*.spec.ts --recursive"], function(err){
 
     if(err)
     {

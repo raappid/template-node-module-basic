@@ -1,15 +1,12 @@
 
-import chai = require('chai');
 import main = require("../../src/main");
 
 describe('my-manager Integration Test cases', () => {
 
-    var expect = chai.expect;
-
 
     describe("sayHello",()=>{
 
-        it("should resolve with hello and hi",(done)=>{
+        it("should resolve with hello and hi",function(done){
 
             main.sayHelloAndHi().then((result)=>{
 

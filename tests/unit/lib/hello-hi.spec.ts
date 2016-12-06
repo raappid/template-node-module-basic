@@ -1,18 +1,12 @@
 
-import chai = require('chai');
-import sinon = require('sinon');
 import {sayHello} from "../../../src/lib/hello-hi";
 import {sayHi} from "../../../src/lib/hello-hi";
-
-chai.use(require("sinon-chai"));
-
-var expect = chai.expect;
 
 describe("hello-hi Spec",()=>{
 
     describe("sayHello",()=>{
 
-        it("should resolve with 'hello' ",(done)=>{
+        it("should resolve with 'hello' ",function(done){
 
             sayHello().then((result:string)=>{
 
@@ -24,7 +18,7 @@ describe("hello-hi Spec",()=>{
 
     });
 
-    describe("sayHi",()=>{
+    describe("sayHi",function(){
 
         it("should resolve retrun 'hi' ",()=>{
 
